@@ -1,0 +1,9 @@
+.bigDiv {
+    background-color: rgb(254, 250, 224);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px 20px;
+    justify-content: space-between;
+
+}

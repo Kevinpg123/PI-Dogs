@@ -1,0 +1,70 @@
+.bigDiv {
+    background-color: rgb(254, 250, 224);
+}
+
+.orderDiv {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: end;
+}
+
+/* .Button {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1.8em;
+    background-color: rgb(212, 163, 115);
+    height: 2.2em;
+    border-radius: 0.5em;
+} */
+
+.Button {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1.8em;
+    background-color: rgb(212, 163, 115);
+    height: 2.1em;
+    width: 10%;
+    border-radius: 0.5em;
+    transition: transform 0.2s;
+    font-size: 0.9em;
+    font-family: Arial;
+    padding: 0px 4px;
+}
+
+.Button:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 4px black;
+}
+
+.Button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 4px white;
+}
+
+
+
+.filterDiv {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: end;
+}
+
+.filterSelect {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1.8em;
+    background-color: rgb(212, 163, 115);
+    height: 2.2em;
+    border-radius: 0.5em;
+}
+
+.pageDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 0;
+    padding-bottom: 3em;
+    padding-top: 2em;
+}

@@ -1,0 +1,53 @@
+.bigDiv {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(254, 250, 224);
+
+}
+
+
+.Button {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1em;
+    background-color: rgb(212, 163, 115);
+    height: 2.1em;
+    width: 35%;
+    border-radius: 0.5em;
+    transition: transform 0.2s;
+    font-size: 0.9em;
+    font-family: Arial;
+    padding: 0px 4px;
+}
+
+.Button:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 4px black;
+}
+
+.Button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 4px white;
+}
+
+.input {
+    height: 2em;
+    width: 10em;
+    border: 2px solid black;
+    border-radius: 0.6em;
+    background-color: rgb(204, 213, 174);
+    padding-left: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 0.8em;
+
+}
+
+.input::placeholder {
+    color: black;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2em;
+    font-weight: initial;
+}
