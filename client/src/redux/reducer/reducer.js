@@ -1,4 +1,4 @@
-import { ALL_DOGS, FILTER_ORIGIN, FILTER_TEMPERAMENT, GET_ALL_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, RESET_SEARCH_DOGS_ERROR, SEARCH_DOGS, SEARCH_DOGS_ERROR } from "../action/action";
+import { ALL_DOGS, FILTER_ORIGIN, FILTER_TEMPERAMENT, GET_ALL_TEMPERAMENTS, ORDER_NAME, ORDER_NAME_DIRECTION, ORDER_WEIGHT, ORDER_WEIGHT_DIRECTION, PAGE_NUM, RESET_SEARCH_DOGS_ERROR, SEARCH_DOGS, SEARCH_DOGS_ERROR } from "../action/action";
 
 const initialState = {
     allDogs: [],
@@ -7,9 +7,10 @@ const initialState = {
     searchDogsOriginal:[],
     searchDogsError: [],
     allTemperaments: [],
-    sortByName: "desc",
-    sortByWeight: "desc",
-    filterOrigin: "all"
+    sortByName: "asc",
+    sortByWeight: "asc",
+    filterOrigin: "all",
+    pageNum:1
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -40,35 +41,71 @@ const rootReducer = (state = initialState, action) => {
                 ...state, allTemperaments: payload
             }
             break;
+        case ORDER_NAME_DIRECTION:
+            return {
+                ...state, sortByName:payload
+            }
+            break;
+        
+        case ORDER_WEIGHT_DIRECTION:
+            return {
+                ...state, sortByWeight: payload
+            }
+            break;
+        
         case ORDER_NAME:
             
-            if (state.sortByName === "desc") {
+            if (state.sortByName === "asc") {
                 return {
                     ...state, allDogs: state.allDogs.slice().sort((a, b) => a.name.localeCompare(b.name)),
-                    sortByName: "asc",
+                    
                     searchDogs: state.searchDogsOriginal.slice().sort((a, b) => a.name.localeCompare(b.name)),
                 }
             } else {
                 return {
                     ...state, allDogs: state.allDogs.slice().sort((a, b) => b.name.localeCompare(a.name)),
-                    sortByName: "desc",
+                    
                     searchDogs: state.searchDogsOriginal.slice().sort((a, b) => b.name.localeCompare(a.name)),
                 }
             }
             break;
         
         case ORDER_WEIGHT:
-            if (state.sortByWeight === "desc") {
+            if (state.sortByWeight === "asc") {
                 return {
-                    ...state, allDogs: state.allDogs.slice().sort((a, b) => a.weight.toString().localeCompare(b.weight.toString())),
-                    sortByWeight: "asc",
-                    searchDogs: state.searchDogsOriginal.slice().sort((a, b) => a.weight.toString().localeCompare(b.weight.toString())),
+                    ...state, allDogs: state.allDogs.slice().sort((a, b) => {
+                        const [aMin, aMax] = a.weight.split(" - ").map(parseFloat)
+                        const [bMin, bMax] = b.weight.split(" - ").map(parseFloat)
+                        const avgA = (aMin + aMax)/2
+                        const avgB = (bMin + bMax) / 2
+                        return avgA-avgB
+                    }),
+                   
+                    searchDogs: state.searchDogsOriginal.slice().sort((a, b) => {
+                        const [aMin, aMax] = a.weight.split(" - ").map(parseFloat)
+                        const [bMin, bMax] = b.weight.split(" - ").map(parseFloat)
+                        const avgA = (aMin + aMax)/2
+                        const avgB = (bMin + bMax) / 2
+                        return avgA-avgB
+                    }),
                 }
             } else {
                 return {
-                    ...state, allDogs: state.allDogs.slice().sort((a, b) => b.weight.toString().localeCompare(a.weight.toString())),
-                    sortByWeight: "desc",
-                    searchDogs: state.searchDogsOriginal.slice().sort((a, b) => b.weight.toString().localeCompare(a.weight.toString())),
+                    ...state, allDogs: state.allDogs.slice().sort((a, b) => {
+                        const [aMin, aMax] = a.weight.split(" - ").map(parseFloat)
+                        const [bMin, bMax] = b.weight.split(" - ").map(parseFloat)
+                        const avgA = (aMin + aMax)/2
+                        const avgB = (bMin + bMax) / 2
+                        return avgB-avgA
+                    }),
+                    
+                    searchDogs: state.searchDogsOriginal.slice().sort((a, b) => {
+                        const [aMin, aMax] = a.weight.split(" - ").map(parseFloat)
+                        const [bMin, bMax] = b.weight.split(" - ").map(parseFloat)
+                        const avgA = (aMin + aMax)/2
+                        const avgB = (bMin + bMax) / 2
+                        return avgB-avgA
+                    }),
                 }
             }
             break;
@@ -76,7 +113,7 @@ const rootReducer = (state = initialState, action) => {
         case FILTER_ORIGIN:
             if (payload === "all") {
                 return {
-                    ...state, allDogs: state.allDogsOriginal
+                    ...state, allDogs: state.allDogsOriginal.slice().sort((a, b) => a.name.localeCompare(b.name)),
                 }
             }
             if (payload === "API") {
@@ -94,14 +131,20 @@ const rootReducer = (state = initialState, action) => {
         case FILTER_TEMPERAMENT:
             if (payload === "all") {
                 return {
-                    ...state, allDogs: state.allDogsOriginal
+                    ...state, allDogs: state.allDogsOriginal.slice().sort((a, b) => a.name.localeCompare(b.name)),
                 }
             }
 
             return {
                 ...state, allDogs: state.allDogsOriginal.slice().filter((el) => el.temperament.split(', ').includes(payload))
             }
-            
+            break;
+        
+        case PAGE_NUM:
+            return {
+                ...state, pageNum: parseFloat(payload)
+            }
+        
         default:
             return {...state}
             break;

@@ -2,12 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import addTemperamentBD from '../form/addTemperamentBD'
 import { useEffect } from 'react'
+import { getAllDogs } from '../../redux/action/action'
+import { useDispatch } from 'react-redux'
 
 
 function Landing() {
-
+    const dispatch = useDispatch()
     useEffect(() => {
         addTemperamentBD()
+
+        dispatch(getAllDogs())
+
+
 
     }, [])
 

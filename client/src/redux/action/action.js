@@ -6,9 +6,12 @@ export const SEARCH_DOGS_ERROR = "SEARCH_DOGS_ERROR"
 export const RESET_SEARCH_DOGS_ERROR = "RESET_SEARCH_DOGS_ERROR"
 export const GET_ALL_TEMPERAMENTS = "GET_ALL_TEMPERAMENTS"
 export const ORDER_WEIGHT = "ORDER_WEIGHT"
+export const ORDER_WEIGHT_DIRECTION = "ORDER_WEIGHT_DIRECTION" 
 export const ORDER_NAME = "ORDER_NAME"
+export const ORDER_NAME_DIRECTION = "ORDER_NAME_DIRECTION"
 export const FILTER_ORIGIN = "FILTER_ORIGIN"
 export const FILTER_TEMPERAMENT = "FILTER_TEMPERAMENT"
+export const PAGE_NUM = "PAGE_NUM"
 
 
 export const getAllDogs = () => {
@@ -154,4 +157,31 @@ export const filterTemperament = (value) => {
             payload: value
         })
     } 
+}
+
+export const directionOrderName = (value) => {
+    return (dispatch) => {
+        dispatch({
+            type: ORDER_NAME_DIRECTION,
+            payload: value
+        })
+    }
+}
+
+export const directionOrderWeight = (value) => {
+    return (dispatch) => {
+        dispatch({
+            type: ORDER_WEIGHT_DIRECTION,
+            payload: value
+        })
+    }
+}
+
+export const handlePageNum = (value) => {
+    return (dispatch) => {
+        dispatch({
+            type: PAGE_NUM,
+            payload: value,
+        })
+    }
 }

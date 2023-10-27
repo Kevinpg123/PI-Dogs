@@ -27,21 +27,18 @@ module.exports = (sequelize) => {
       unique: true,
     },
     height: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     weight: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     life_span: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
-    apodo: {
-      type: DataTypes.STRING,
-      allowNull:false,
-    }
+    
   }, {timestamps: false});
 
  

@@ -39,7 +39,7 @@ try {
             'height',
             'weight',
           'life_span',
-            'apodo',
+          
           ],
           include: [
             {
@@ -66,7 +66,7 @@ try {
         weight: dog.weight,
         life_span: dog.life_span,
       temperament: (dog.dataValues.temperaments.map((temp) => { return temp.dataValues.temperaments_name })).join(', '),
-        apodo: dog.apodo,
+        
       }));
 
 

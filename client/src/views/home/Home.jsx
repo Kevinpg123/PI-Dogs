@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cards from '../../components/cards/Cards'
-import { filterOrigin, filterTemperament, getAllDogs, orderDogs } from '../../redux/action/action'
+import { directionOrderName, directionOrderWeight, filterOrigin, filterTemperament, getAllDogs, handlePageNum, orderDogs } from '../../redux/action/action'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDogByName } from '../../redux/action/action'
 import Style from './Home.module.css'
@@ -39,17 +39,14 @@ function Home() {
     const [showAllDogs, setShowAllDogs] = useState(true)
     const searchDogs = useSelector((state) => state.searchDogs);
     const allDogs = useSelector((state) => state.allDogs);
-    const [error, setError] = useState(false)
     const searchDogsError = useSelector((state) => state.searchDogsError)
-    const [currentPage, setCurrentPage] = useState(1)
+    const pageNum = useSelector((state) => state.pageNum)
 
 
 
     useEffect(() => {
-        if (allDogs.length === 0) {
-            dispatch(getAllDogs())
-        }
-
+        dispatch(directionOrderName("asc"))
+        dispatch(orderDogs("name"))
     }, [])
 
 
@@ -61,6 +58,9 @@ function Home() {
             setShowAllDogs(true)
 
         }
+        if (searchDogs.length > 0) {
+            handlePage(1)
+        }
     }, [searchDogs, searchDogsError])
 
     const closeAll = () => {
@@ -68,20 +68,31 @@ function Home() {
     }
 
     const getCurrentDogs = () => {
-        const startIndex = (currentPage - 1) * 8;
+        const startIndex = (pageNum - 1) * 8;
         const endIndex = startIndex + 8;
         return showAllDogs ? allDogs.slice(startIndex, endIndex) : searchDogs.slice(startIndex, endIndex)
     }
 
     const handlePage = (pageActualization) => {
-        setCurrentPage(pageActualization)
+        dispatch(handlePageNum(pageActualization))
     }
 
-    const handleOrder = (order) => {
+    const handleOrder = (valor) => {
 
-        dispatch(orderDogs(order))
+        let value = valor.target.value
+        const [order, direction] = value.split(",")
+
+        console.log(value);
+        if (order === "name") {
+            dispatch(directionOrderName(direction))
+            dispatch(orderDogs(order))
+        } else {
+            dispatch(directionOrderWeight(direction))
+            dispatch(orderDogs(order))
+        }
     }
     const handleFilterOrigin = (el) => {
+        handlePage(1)
         dispatch(filterOrigin(el.target.value))
     }
 
@@ -93,6 +104,7 @@ function Home() {
     const allTemperaments = useSelector((state) => state.allTemperaments)
 
     const handleFilterTemperament = (el) => {
+        handlePage(1)
         dispatch(filterTemperament(el.target.value))
     }
 
@@ -101,8 +113,25 @@ function Home() {
         <div className={Style.bigDiv}>
             <div className={Style.orderDiv}>
                 <h2>Ordenamiento</h2>
-                <button className={Style.Button} onClick={() => handleOrder("name")}>Nombre</button>
-                <button className={Style.Button} onClick={() => handleOrder("weight")}>Peso</button>
+                <div>
+                    <h3>Nombre</h3>
+                    <select onChange={(value) => handleOrder(value)} defaultValue={""}>
+                        <option value="" disabled>Seleccione una opción</option>
+                        <option value={["name", "asc"]} >Ascendente</option>
+                        <option value={["name", "desc"]} >Descendente</option>
+                    </select>
+                </div>
+
+                <div>
+                    <h3>Peso</h3>
+                    <select onChange={(value) => handleOrder(value)} defaultValue={""}>
+                        <option value="" disabled>Seleccione una opción</option>
+                        <option value={["weight", "asc"]}>Ascendente</option>
+                        <option value={["weight", "desc"]}>Descendente</option>
+                    </select>
+                </div>
+
+
             </div>
             <div className={Style.filterDiv}>
                 <h2>Filtrado</h2>
@@ -135,14 +164,14 @@ function Home() {
             <div className={Style.pageDiv}>
                 <button
                     className={Style.Button}
-                    disabled={currentPage === 1}
-                    onClick={() => handlePage(currentPage - 1)}
+                    disabled={pageNum === 1}
+                    onClick={() => handlePage(pageNum - 1)}
                 >Anterior</button>
-                <h2>Pagina: {currentPage}</h2>
+                <h2>Pagina: {pageNum}</h2>
                 <button
                     className={Style.Button}
                     disabled={getCurrentDogs().length < 8}
-                    onClick={() => handlePage(currentPage + 1)}
+                    onClick={() => handlePage(pageNum + 1)}
                 >Siguiente</button>
             </div>
 

@@ -26,12 +26,15 @@ function Form() {
 
     const [dogData, setDogData] = useState({
         name: "",
-        height: "",
-        weight: "",
-        life_span: "",
+        heightMax: "",
+        heightMin: "",
+        weightMax: "",
+        weightMin: "",
+        life_spanMax: "",
+        life_spanMin: "",
         temperament: [],
         reference_image_id: "https://t1.ea.ltmcdn.com/es/posts/5/6/2/10_caracteristicas_de_los_perros_24265_600_square.jpg",
-        apodo: "",
+
 
     })
 
@@ -74,7 +77,7 @@ function Form() {
                 dogData.temperament = dogData.temperament.split(",")
                 console.log(dogData);
             }
-            const datosNum = parseNum(dogData)
+            const datosNum = parseNum(dogData)   /////////aca cambio el formato para que lo acepte mi DB
             try {
                 const sendData = await axios.post("http://localhost:3001/add_dog", datosNum);
                 window.alert("Raza creada satisfactoriamente")
@@ -122,22 +125,23 @@ function Form() {
                 <input name="name" value={dogData.name} onChange={handleChange}></input>
                 <label htmlFor='name'>{error.name}</label>
 
-                <h2>Apodo</h2>
-                <input name="apodo" value={dogData.apodo} onChange={handleChange}></input>
-                {/* <label htmlFor='name'>{error.name}</label> */}
+
 
                 <h2>Altura [cm]</h2>
-                <input name='height' value={dogData.height} onChange={handleChange}></input>
-                <label htmlFor='height'>{error.height}</label>
+                <input name='heightMin' value={dogData.heightMin} onChange={handleChange}></input>
+                <input name='heightMax' value={dogData.heightMax} onChange={handleChange}></input>
+                <label htmlFor='heightMax'>{error.height}</label>
 
                 <h2>Peso [kg]</h2>
-                <input name='weight' value={dogData.weight} onChange={handleChange}></input>
-                <label htmlFor='weight'>{error.weight}</label>
+                <input name='weightMin' value={dogData.weightMin} onChange={handleChange}></input>
+                <input name='weightMax' value={dogData.weightMax} onChange={handleChange}></input>
+                <label htmlFor='weightMax'>{error.weight}</label>
 
 
                 <h2>Años de vida</h2>
-                <input name='life_span' value={dogData.life_span} onChange={handleChange}></input>
-                <label htmlFor='life_span'>{error.life_span}</label>
+                <input name='life_spanMin' value={dogData.life_spanMin} onChange={handleChange}></input>
+                <input name='life_spanMax' value={dogData.life_spanMax} onChange={handleChange}></input>
+                <label htmlFor='life_spanMax'>{error.life_span}</label>
 
 
 
