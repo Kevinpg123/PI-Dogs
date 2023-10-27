@@ -14,7 +14,7 @@ const validation = ({name,heightMax, heightMin ,weightMax,weightMin,life_spanMax
     if (!name  || !heightMax || !heightMin || !weightMax || !weightMin || !life_spanMax || !life_spanMin  || !temperament) {
         error = { ...error, empty: false }
     }
-    else{error = { ...error, empty: false }}
+    
 
     if (name.trim().length < 4 || name.trim() == "") {
         error = { ...error, name: "El nombre debe contener como minimo 4 caracteres" }
@@ -54,6 +54,14 @@ const validation = ({name,heightMax, heightMin ,weightMax,weightMin,life_spanMax
         error = {...error, life_span: "El valor mínimo es 1"}
     }
 
+    // if (temperament.length === 0) {
+    //     error = {...error, temperament: "Se necesita agregar temperamentos"}
+    // }
+
+    if (error.name === "" || error.height === "" || error.weight === "" || error.life_span === "" || error.temperament === "") {
+        { error = { ...error, empty: false } }
+        
+    }
 
     // if (!typeof (weight) == "number") {
     //     error = { ...error, weight: "Solo se puede ingresar números" }

@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom'
 import SearchBar from '../searchBar/SearchBar'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import Style from './NavBar.module.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { handlePageNum } from '../../redux/action/action'
+
 
 function NavBar() {
     const location = useLocation();
+
 
 
     return (

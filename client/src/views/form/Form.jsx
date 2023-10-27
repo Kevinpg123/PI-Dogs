@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllDogs, getAllTemperaments } from '../../redux/action/action';
 import axios from 'axios'
 import parseNum from './parseNums';
+import { Link } from 'react-router-dom'
 
 
 function Form() {
@@ -119,6 +120,12 @@ function Form() {
 
     return (
         <div>
+            <div>
+                <Link to="/home">
+                    <h1>Volver </h1>
+                </Link>
+            </div>
+
             <h1>Formulario de creación de raza</h1>
             <form onSubmit={handleSubmit}>
                 <h2>Nombre</h2>
@@ -181,6 +188,7 @@ function Form() {
 
                     </ul>
                 }
+                <label htmlFor='temperament'>{error.temperament}</label>
 
                 <br></br>
                 <button type='submit'>Ingresar Datos</button>

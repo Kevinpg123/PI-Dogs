@@ -47,6 +47,7 @@ function Home() {
     useEffect(() => {
         dispatch(directionOrderName("asc"))
         dispatch(orderDogs("name"))
+
     }, [])
 
 
