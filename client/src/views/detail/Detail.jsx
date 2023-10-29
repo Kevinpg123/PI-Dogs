@@ -3,13 +3,14 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import style from './Detail.module.css'
 
 function Detail() {
     const { id } = useParams()
     const idNum = id
 
     useEffect(() => {
-
+        window.scrollTo(0, 0)
         const getDogById = async () => {
 
             try {
@@ -81,30 +82,34 @@ function Detail() {
 
     return (
 
-        <div>
+        <div className={style.bigDiv}>
             {
                 dogDetail ? (
                     <>
-                        <div>
-                            <Link to="/home">
-                                <h1>Volver </h1>
-                            </Link>
+
+                        <Link to="/home">
+                            <button className={style.backButton}>Volver</button>
+                        </Link>
+                        <h1 className={style.nameTitulo}>{dogDetail.name}</h1>
+                        <div className={style.secondDiv}>
+                            <div>
+                                {
+                                    image ?
+                                        (<img className={style.imagen} src={image} alt="imagen" />)
+                                        :
+                                        (<img className={style.imagen} src={reference} alt="imagen" />)
+                                }
+                            </div>
+
+                            <div className={style.divText}>
+
+                                <p className={style.texto}> Su altura está entre {dogDetail.height ? (`${dogDetail.height}`) : ("N/A")} centímetros.</p>
+                                <p className={style.texto}>Su peso puede variar entre {dogDetail.weight ? (`${dogDetail.weight}`) : ("N/A")} kg.</p>
+                                <p className={style.texto}>Vive alrededor de {dogDetail.life_span} años.</p>
+                                <p className={style.texto}>Y sus temperamentos son: {dogDetail.temperament}.</p>
+                                <p className={style.texto}>Su id es: {idNum}.</p>
+                            </div>
                         </div>
-                        <h1>Nombre= {dogDetail.name}</h1>
-                        <h1>Id= {idNum}</h1>
-                        {
-                            image ?
-                                (<img src={image} alt="imagen" />)
-                                :
-                                (<img src={reference} alt="imagen" />)
-                        }
-                        {/* <img src={image} alt='imagen del perrito' /> */}
-                        <h1>Altura= {dogDetail.height ? `${dogDetail.height} centimetros` : "N/A"}</h1>
-                        <h1>Peso= {dogDetail.weight ? `${dogDetail.weight} kg` : "N/A"}</h1>
-                        {/* <h1>Altura= {dogDetail.height && dogDetail.height.metric ? `${dogDetail.height.metric} centímetros` : 'N/A'}</h1>
-                        <h1>Peso= {dogDetail.weight && dogDetail.weight.metric ? `${dogDetail.weight.metric} kg` : 'N/A'}</h1> */}
-                        <h1>Temperamento= {dogDetail.temperament}</h1>
-                        <h1>Años de vida= {dogDetail.life_span}</h1>
                     </>
                 )
                     :
@@ -123,3 +128,12 @@ function Detail() {
 }
 
 export default Detail
+
+
+////////////////////datos separados
+{/* <h1>Nombre= {dogDetail.name}</h1>
+                                <h1>Altura= {dogDetail.height ? `${dogDetail.height} centimetros` : "N/A"}</h1>
+                                <h1>Peso= {dogDetail.weight ? `${dogDetail.weight} kg` : "N/A"}</h1>
+                                <h1>Temperamentos= {dogDetail.temperament}</h1>
+                                <h1>Años de vida= {dogDetail.life_span}</h1>
+                                <h1>Id= {idNum}</h1> */}

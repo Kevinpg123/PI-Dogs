@@ -17,7 +17,7 @@ const validation = ({name,heightMax, heightMin ,weightMax,weightMin,life_spanMax
     
 
     if (name.trim().length < 4 || name.trim() == "") {
-        error = { ...error, name: "El nombre debe contener como minimo 4 caracteres" }
+        error = { ...error, name: "Mínimo 4 caracteres" }
     } else if (/[0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(name)) {
         error = { ...error, name: "El nombre no puede contener números o caracteres especiales" }
     } else if (name.length > 30) {

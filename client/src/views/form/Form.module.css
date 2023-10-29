@@ -12,6 +12,11 @@
 
 .checkbox_list_li {
     margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
     /* Espacio entre los checkboxes */
 }
 
@@ -20,4 +25,144 @@
     /* Coloca el label y el checkbox en línea */
     align-items: center;
     /* Centra verticalmente los elementos */
+}
+
+.form {
+    border: 1.5px solid #FEFAE0;
+    width: 38%;
+    align-self: center;
+    background-color: #D4A373;
+    border-radius: 8px;
+    margin-bottom: 4em;
+
+}
+
+.bigDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(254, 250, 224);
+    padding-top: 0.5em;
+}
+
+.button {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1.5em;
+    background-color: #CCD5AE;
+    height: 2.1em;
+    width: 40%;
+    border-radius: 0.5em;
+    transition: transform 0.2s;
+    font-size: 0.9em;
+    font-family: Arial;
+    padding: 0px 4px;
+}
+
+.divBack:hover {
+    box-shadow: 2px 1px rgb(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.divBack:active {
+    transform: translateY(3px);
+    box-shadow: 2px 4px 0 white;
+}
+
+.textBack {
+    padding: 0;
+    color: grey;
+    margin: 0.2em 0em;
+    font-size: 1.5em;
+}
+
+.inputsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 1.5px solid #FEFAE0;
+
+}
+
+.nameH2 {
+    margin-right: 2em;
+    align-self: center;
+    margin-left: 2.5em;
+    font-size: 20px;
+    width: 6em;
+}
+
+.Input {
+    height: 1.5em;
+    align-self: center;
+    border: none;
+    border-radius: 4px;
+}
+
+.labelName {
+    overflow: hidden;
+    align-self: center;
+    padding-left: 1em;
+    width: 50%;
+}
+
+.inputDobleDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0.2em 0;
+}
+
+.inputDobleBigDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 1.5px solid #FEFAE0;
+    height: 5em;
+    padding: 0.8em 0;
+
+}
+
+.InputDobles {
+    height: 1.4em;
+    align-self: center;
+    border: none;
+    border-radius: 4px;
+}
+
+.temperamentName {
+    margin-right: 2em;
+    align-self: center;
+    margin-left: 1em;
+    font-size: 20px;
+    width: 6em;
+}
+
+.temperamentDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-top: 1px solid #FEFAE0;
+    border-left: 1px solid #FEFAE0;
+    border-right: 1px solid #FEFAE0;
+}
+
+
+.buttonSubmit {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    background-color: #CCD5AE;
+    height: 2.1em;
+    width: 40%;
+    border-radius: 0.5em;
+    transition: transform 0.2s;
+    font-size: 0.9em;
+    font-family: Arial;
+    padding: 0px 4px;
+}
+
+.h1 {
+    font-family: Arial;
 }

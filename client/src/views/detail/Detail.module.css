@@ -1,0 +1,81 @@
+.bigDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(254, 250, 224);
+    justify-content: center;
+    height: auto;
+    padding-bottom: 5em;
+
+}
+
+.backButton {
+    display: flex;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    margin-top: 1.5em;
+    background-color: rgb(212, 163, 115);
+    height: 2.1em;
+    width: 6%;
+    border-radius: 0.5em;
+    transition: transform 0.2s;
+    font-size: 0.9em;
+    font-family: Arial;
+    justify-content: center;
+    align-self: flex-start;
+    align-items: center;
+}
+
+.backButton:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 4px black;
+}
+
+.backButton:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 4px white;
+}
+
+.secondDiv {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    justify-content: center;
+}
+
+.imagen {
+    height: 20em;
+    width: auto;
+    border-radius: 5px;
+    border: 1px solid #D4A373;
+    transition: height 0.4s, width 0.4s;
+}
+
+.imagen:hover {
+    height: 30em;
+    width: auto;
+}
+
+.divText {
+    width: 45em;
+    height: 28em;
+    margin-left: 2.5em;
+    padding-top: 0;
+}
+
+.texto {
+    font-size: 1.4em;
+    text-align: start;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+
+}
+
+.nameTitulo {
+    font-size: 2.6em;
+    font-family: Arial;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+
+}

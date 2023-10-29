@@ -119,51 +119,71 @@ function Form() {
 
 
     return (
-        <div>
-            <div>
+        <div className={Style.bigDiv}>
+            {/* <div className={Style.divBack}>
                 <Link to="/home">
-                    <h1>Volver </h1>
+
+                    <h1 className={Style.textBack}>Volver </h1>
                 </Link>
-            </div>
+            </div> */}
 
-            <h1>Formulario de creación de raza</h1>
-            <form onSubmit={handleSubmit}>
-                <h2>Nombre</h2>
-                <input name="name" value={dogData.name} onChange={handleChange}></input>
-                <label htmlFor='name'>{error.name}</label>
+            <h1 className={Style.h1}>Formulario de creación de raza</h1>
+            <form className={Style.form} onSubmit={handleSubmit}>
+                <div className={Style.inputsDiv}>
+                    <h2 className={Style.nameH2}>Nombre</h2>
+                    <input placeholder='Ingrese el nombre' className={Style.Input} name="name" value={dogData.name} onChange={handleChange}></input>
+                    <label className={Style.labelName} htmlFor='name'>{error.name}</label>
+                </div>
 
+                <div className={Style.inputDobleBigDiv}>
+                    <h2 className={Style.nameH2}>Altura [cm]</h2>
+                    <div className={Style.inputDobleDiv}>
+                        <input placeholder='Min' className={Style.InputDobles} name='heightMin' value={dogData.heightMin} onChange={handleChange}></input>
+                        <input placeholder='Max' className={Style.InputDobles} name='heightMax' value={dogData.heightMax} onChange={handleChange}></input>
 
-
-                <h2>Altura [cm]</h2>
-                <input name='heightMin' value={dogData.heightMin} onChange={handleChange}></input>
-                <input name='heightMax' value={dogData.heightMax} onChange={handleChange}></input>
-                <label htmlFor='heightMax'>{error.height}</label>
-
-                <h2>Peso [kg]</h2>
-                <input name='weightMin' value={dogData.weightMin} onChange={handleChange}></input>
-                <input name='weightMax' value={dogData.weightMax} onChange={handleChange}></input>
-                <label htmlFor='weightMax'>{error.weight}</label>
-
-
-                <h2>Años de vida</h2>
-                <input name='life_spanMin' value={dogData.life_spanMin} onChange={handleChange}></input>
-                <input name='life_spanMax' value={dogData.life_spanMax} onChange={handleChange}></input>
-                <label htmlFor='life_spanMax'>{error.life_span}</label>
+                    </div>
+                    <label className={Style.labelName} htmlFor='heightMax'>{error.height}</label>
+                </div>
 
 
 
-                <h2>Temperamentos</h2>
+                <div className={Style.inputDobleBigDiv}>
+                    <h2 className={Style.nameH2}>Peso [kg]</h2>
+                    <div className={Style.inputDobleDiv}>
+                        <input placeholder='Min' className={Style.InputDobles} name='weightMin' value={dogData.weightMin} onChange={handleChange}></input>
+                        <input placeholder='Max' className={Style.InputDobles} name='weightMax' value={dogData.weightMax} onChange={handleChange}></input>
+                    </div>
+                    <label className={Style.labelName} htmlFor='weightMax'>{error.weight}</label>
+                </div>
 
-                <input
-                    list="temperamentOptions"
-                    name="temperament"
-                    placeholder=''
-                    type='search'
-                    value={dogData.temperament}
-                    onChange={handleChange}
-                ></input>
+                <div className={Style.inputDobleBigDiv}>
+                    <h2 className={Style.nameH2}>Años de vida</h2>
+                    <div className={Style.inputDobleDiv}>
+                        <input placeholder='Min' className={Style.InputDobles} name='life_spanMin' value={dogData.life_spanMin} onChange={handleChange}></input>
+                        <input placeholder='Max' className={Style.InputDobles} name='life_spanMax' value={dogData.life_spanMax} onChange={handleChange}></input>
+                    </div>
+                    <label className={Style.labelName} htmlFor='life_spanMax'>{error.life_span}</label>
+                </div>
 
-                <button onClick={handleShowTemperament} type='button'>Mostrar/Esconder temperamentos</button>
+
+                <div className={Style.temperamentDiv}>
+                    <h2 className={Style.temperamentName}>Temperamentos</h2>
+
+                    <input
+                        className={Style.Input}
+                        list="temperamentOptions"
+                        name="temperament"
+                        placeholder=''
+                        type='search'
+                        value={dogData.temperament}
+                        onChange={handleChange}
+                    ></input>
+                    <label className={Style.labelName} htmlFor='temperament'>{error.temperament}</label>
+
+                </div>
+
+
+                <button className={Style.button} onClick={handleShowTemperament} type='button'>Mostrar/Esconder temperamentos</button>
 
                 {
                     showTemperament && <ul className={Style.checkbox_list}>
@@ -188,10 +208,13 @@ function Form() {
 
                     </ul>
                 }
-                <label htmlFor='temperament'>{error.temperament}</label>
+
+                {/* <label htmlFor='temperament'>{error.temperament}</label> */}
+
+
 
                 <br></br>
-                <button type='submit'>Ingresar Datos</button>
+                <button className={Style.buttonSubmit} type='submit'>Ingresar Datos</button>
 
             </form>
 
