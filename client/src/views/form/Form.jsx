@@ -12,15 +12,16 @@ import { Link } from 'react-router-dom'
 function Form() {
 
     const dispatch = useDispatch()
+    const [showTemperament, setShowTemperament] = useState(false)
 
     useEffect(() => {
         if (allTemperaments.length < 50) {
             dispatch(getAllTemperaments())
         }
+        setShowTemperament(true)
     }, [])
     const allTemperaments = useSelector((state) => state.allTemperaments)
-    if (allTemperaments) {
-    }
+
 
 
 
@@ -86,20 +87,31 @@ function Form() {
                 console.log(error.message);
                 window.alert("Error al crear la raza")
             }
+            setDogData({
+                name: "",
+                heightMax: "",
+                heightMin: "",
+                weightMax: "",
+                weightMin: "",
+                life_spanMax: "",
+                life_spanMin: "",
+                temperament: [],
+                reference_image_id: "https://t1.ea.ltmcdn.com/es/posts/5/6/2/10_caracteristicas_de_los_perros_24265_600_square.jpg",
 
+
+            })
         }
         dispatch(getAllDogs())
     }
 
-    const [showTemperament, setShowTemperament] = useState(false)
 
-    const handleShowTemperament = (event) => {
-        if (showTemperament === false) {
-            setShowTemperament(true)
-        } else {
-            setShowTemperament(false)
-        }
-    }
+    // const handleShowTemperament = (event) => {
+    //     if (showTemperament === false) {
+    //         setShowTemperament(true)
+    //     } else {
+    //         setShowTemperament(false)
+    //     }
+    // }
 
     const handleTemperamentClick = (el) => {
         const isAlreadySelected = dogData.temperament.includes(el)
@@ -183,39 +195,42 @@ function Form() {
                 </div>
 
 
-                <button className={Style.button} onClick={handleShowTemperament} type='button'>Mostrar/Esconder temperamentos</button>
+                {/* <button className={Style.button} onClick={handleShowTemperament} type='button'>Mostrar/Esconder temperamentos</button> */}
+                <div className={Style.listDiv}>
+                    {
+                        showTemperament && <ul className={Style.checkbox_list}>
+                            {
 
-                {
-                    showTemperament && <ul className={Style.checkbox_list}>
-                        {
+                                allTemperaments.map((el, index) => {
+                                    return (
+                                        <div>
+                                            <li className={Style.checkbox_list_li} key={index}>
+                                                <label className={Style.checkbox_label}>
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={dogData.temperament.includes(el)}
+                                                        onChange={() => handleTemperamentClick(el)}
+                                                    />
+                                                    {el}
+                                                </label>
+                                            </li>
+                                        </div>
+                                    )
 
-                            allTemperaments.map((el, index) => {
-                                return (
-                                    <li className={Style.checkbox_list_li} key={index}>
-                                        <label className={Style.checkbox_label}>
-                                            <input
-                                                type="checkbox"
-                                                checked={dogData.temperament.includes(el)}
-                                                onChange={() => handleTemperamentClick(el)}
-                                            />
-                                            {el}
-                                        </label>
-                                    </li>
-                                )
+                                })
+                            }
 
-                            })
-                        }
-
-                    </ul>
-                }
-
+                        </ul>
+                    }
+                </div>
                 {/* <label htmlFor='temperament'>{error.temperament}</label> */}
 
 
 
                 <br></br>
-                <button className={Style.buttonSubmit} type='submit'>Ingresar Datos</button>
-
+                <div className={Style.submitDiv}>
+                    <button className={Style.buttonSubmit} type='submit'>Ingresar Datos</button>
+                </div>
             </form>
 
 

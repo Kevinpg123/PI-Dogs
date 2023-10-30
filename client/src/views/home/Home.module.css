@@ -1,12 +1,23 @@
-.bigDiv {
+body {
     background-color: rgb(254, 250, 224);
+}
+
+.bigDiv {
+    margin-top: 2em;
+    background-color: rgb(254, 250, 224);
+    padding-bottom: 3em;
 }
 
 .orderDiv {
     display: flex;
     flex-direction: row;
-
+    border-radius: 10px;
+    height: 4.5em;
     justify-content: end;
+    margin: 1em 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: rgb(204, 213, 174);
 }
 
 /* .Button {
@@ -44,21 +55,20 @@
 
 
 
-.filterDiv {
-    display: flex;
-    flex-direction: row;
 
-    justify-content: end;
-}
 
 .filterSelect {
     margin-left: 0.8em;
     margin-right: 0.8em;
-    margin-top: 1.8em;
+    border: 1px solid black;
     background-color: rgb(212, 163, 115);
     height: 2.2em;
     border-radius: 0.5em;
 }
+
+
+
+
 
 .pageDiv {
     display: flex;
@@ -67,4 +77,11 @@
     margin-bottom: 0;
     padding-bottom: 3em;
     padding-top: 2em;
+}
+
+.orderFilter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
 }

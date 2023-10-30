@@ -1,30 +1,45 @@
 .checkbox_list {
     list-style: none;
-    /* Elimina la viñeta (marcador) a la izquierda */
+    /* list-style: none;
     display: flex;
-    /* Coloca los elementos en línea (uno al lado del otro) */
     padding: 0;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 
     /* Elimina el relleno (padding) de la lista */
 }
 
 .checkbox_list_li {
-    margin-right: 20px;
+    /* margin-right: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
 
     /* Espacio entre los checkboxes */
 }
 
+.listDiv {
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: auto;
+    height: 14em;
+    width: 90%;
+    border-left: 1px solid #FEFAE0;
+    border-right: 2px solid #FEFAE0;
+    align-self: center;
+    /* display: flex;
+    flex-direction: column;
+
+
+    border: 1px solid black; */
+}
+
 .checkbox_label {
     display: flex;
-    /* Coloca el label y el checkbox en línea */
-    align-items: center;
-    /* Centra verticalmente los elementos */
+    align-items: flex-start;
 }
 
 .form {
@@ -165,4 +180,8 @@
 
 .h1 {
     font-family: Arial;
+}
+
+.submitDiv {
+    border-top: 2px solid #FEFAE0;
 }

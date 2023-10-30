@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import addTemperamentBD from '../form/addTemperamentBD'
 import { useEffect } from 'react'
-import { getAllDogs } from '../../redux/action/action'
+import { getAllDogs, orderDogs, directionOrderName } from '../../redux/action/action'
 import { useDispatch } from 'react-redux'
 import style from './Landing.module.css'
 
@@ -15,7 +15,8 @@ function Landing() {
         dispatch(getAllDogs())
         window.scrollTo(0, 0)
 
-
+        dispatch(orderDogs("name"))
+        dispatch(directionOrderName("asc"))
 
     }, [])
 

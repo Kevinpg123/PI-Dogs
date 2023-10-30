@@ -35,21 +35,23 @@ function Card({ name, temperament, weight, reference_image_id, id }) {
     }, [reference_image_id])
 
     return (
-        <div className={Style.bigDiv}>
-            {
-                image ?
-                    (<img className={Style.image} src={image} alt="imagen" />)
-                    :
-                    (<img className={Style.image} src={reference_image_id} alt="imagen" />)
-            }
-            {/* <img src={image} alt="imagen" /> */}
-            <Link to={`/detail/${id}`}>
-                <h3>Nombre: {name}</h3>
-            </Link>
+        <Link to={`/detail/${id}`}>
+            <div className={Style.bigDiv}>
+                {
+                    image ?
+                        (<img className={Style.image} src={image} alt="imagen" />)
+                        :
+                        (<img className={Style.image} src={reference_image_id} alt="imagen" />)
+                }
+                {/* <img src={image} alt="imagen" /> */}
 
-            <h3>Temperamento: {temperament}</h3>
-            <h3>Peso: {weight} kg</h3>
-        </div>
+                <h3 className={Style.text}>Nombre: {name}</h3>
+
+
+                <h3 className={Style.text}>Temperamento: {temperament}</h3>
+                <h3 className={Style.text}>Peso: {weight} kg</h3>
+            </div>
+        </Link>
     )
 }
 

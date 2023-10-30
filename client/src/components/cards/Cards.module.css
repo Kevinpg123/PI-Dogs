@@ -3,7 +3,9 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    padding: 10px 20px;
+    padding: 30px 30px;
     justify-content: space-between;
+    padding-bottom: 20px;
+
 
 }

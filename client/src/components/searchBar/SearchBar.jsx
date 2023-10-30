@@ -37,7 +37,7 @@ function SearchBar() {
 
     return (
         <div className={Style.bigDiv}>
-            <input className={Style.input} placeholder='ingrese raza' type='search' onChange={(e) => setNameDog(e.target.value)} onKeyPress={handleKeyPress}></input>
+            <input className={Style.input} placeholder='Buscar raza' type='search' onChange={(e) => setNameDog(e.target.value)} onKeyPress={handleKeyPress}></input>
             <button className={Style.Button} onClick={handlerSearch}>Buscar</button>
             {
                 error && <label>Ingresar un mínimo de 3 carácteres</label>

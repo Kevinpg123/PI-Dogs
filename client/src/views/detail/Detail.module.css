@@ -47,12 +47,11 @@
     width: auto;
     border-radius: 5px;
     border: 1px solid #D4A373;
-    transition: height 0.4s, width 0.4s;
+    transition: transform 0.4s;
 }
 
 .imagen:hover {
-    height: 30em;
-    width: auto;
+    transform: scale(1.3);
 }
 
 .divText {

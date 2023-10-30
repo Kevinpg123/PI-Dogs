@@ -45,8 +45,11 @@ function Home() {
 
 
     useEffect(() => {
-        dispatch(directionOrderName("asc"))
-        dispatch(orderDogs("name"))
+        if (allDogs.length === 0) {
+            dispatch(getAllDogs())
+        }
+
+
 
     }, [])
 
@@ -100,6 +103,8 @@ function Home() {
     useEffect(() => {
         if (allTemperaments.length === 0) {
             dispatch(getAllTemperaments())
+            dispatch(orderDogs("name"))
+            dispatch(directionOrderName("asc"))
         }
     }, [])
     const allTemperaments = useSelector((state) => state.allTemperaments)
@@ -112,55 +117,65 @@ function Home() {
 
     return (
         <div className={Style.bigDiv}>
-            <div className={Style.orderDiv}>
-                <h2>Ordenamiento</h2>
-                <div>
-                    <h3>Nombre</h3>
-                    <select onChange={(value) => handleOrder(value)} defaultValue={""}>
-                        <option value="" disabled>Seleccione una opción</option>
-                        <option value={["name", "asc"]} >Ascendente</option>
-                        <option value={["name", "desc"]} >Descendente</option>
-                    </select>
+            <div className={Style.orderFilter}>
+                <div className={Style.orderDiv}>
+                    <h2>Ordenamiento</h2>
+                    <div>
+                        <h3>Nombre</h3>
+                        <select className={Style.filterSelect} onChange={(value) => handleOrder(value)} defaultValue={""}>
+                            <option value="" disabled hidden>Seleccione una opción</option>
+                            <option value={["name", "asc"]} >Ascendente</option>
+                            <option value={["name", "desc"]} >Descendente</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <h3>Peso</h3>
+                        <select className={Style.filterSelect} onChange={(value) => handleOrder(value)} defaultValue={""}>
+                            <option value="" disabled hidden>Seleccione una opción</option>
+                            <option value={["weight", "asc"]}>Ascendente</option>
+                            <option value={["weight", "desc"]}>Descendente</option>
+                        </select>
+                    </div>
+
+
                 </div>
+                <div className={Style.orderDiv}>
+                    <h2>Filtrado</h2>
+                    <div>
+                        <h3>Temperamento</h3>
+                        <select className={Style.filterSelect} onChange={(el) => handleFilterTemperament(el)} defaultValue={""}>
+                            <option value="" disabled hidden>Seleccione una opción</option>
+                            <option value="all">Todos</option>
+                            {
+                                allTemperaments && allTemperaments.map((temp, index) => {
+                                    return <option key={index} value={temp}>{temp}</option>
+                                })
+                            }
+                        </select>
+                    </div>
 
-                <div>
-                    <h3>Peso</h3>
-                    <select onChange={(value) => handleOrder(value)} defaultValue={""}>
-                        <option value="" disabled>Seleccione una opción</option>
-                        <option value={["weight", "asc"]}>Ascendente</option>
-                        <option value={["weight", "desc"]}>Descendente</option>
-                    </select>
+                    <div>
+                        <h3>Orígen</h3>
+                        <select className={Style.filterSelect} onChange={(el) => handleFilterOrigin(el)} defaultValue={""}>
+                            <option value="" disabled hidden>Seleccione una opción</option>
+                            <option value="">Todos</option>
+                            <option value="API">API</option>
+                            <option value="DB">Base de datos</option>
+                        </select>
+                    </div>
                 </div>
-
-
             </div>
-            <div className={Style.filterDiv}>
-                <h2>Filtrado</h2>
-                <select className={Style.filterSelect} onChange={(el) => handleFilterTemperament(el)}>
-                    <option value="all">Todos</option>
-                    {
-                        allTemperaments && allTemperaments.map((temp, index) => {
-                            return <option key={index} value={temp}>{temp}</option>
-                        })
-                    }
-                </select>
-                <select className={Style.filterSelect} onChange={(el) => handleFilterOrigin(el)}>
-                    <option value="">Todos</option>
-                    <option value="API">API</option>
-                    <option value="DB">Base de datos</option>
-                </select>
-            </div>
-
             {/* {showAllDogs ? <Cards props={allDogs} /> : null} */}
             {showAllDogs ? <Cards props={getCurrentDogs()} /> : null}
 
-            {searchDogs.length > 0 && <button onClick={closeAll}>Cerrar búsqueda</button>}
+            {searchDogs.length > 0 && <button className={Style.Button} onClick={closeAll}>Cerrar búsqueda</button>}
             <br></br>
             {/* {searchDogs.length > 0 && <Cards props={searchDogs} />} */}
             {searchDogs.length > 0 && <Cards props={getCurrentDogs()} />}
 
             {searchDogsError && searchDogsError.error === 'no existe la raza' && <h1>No existe la raza</h1>}
-            {searchDogsError && searchDogsError.error === 'no existe la raza' && <button onClick={closeAll}>Cerrar búsqueda</button>}
+            {searchDogsError && searchDogsError.error === 'no existe la raza' && <button className={Style.Button} onClick={closeAll}>Cerrar búsqueda</button>}
 
             <div className={Style.pageDiv}>
                 <button

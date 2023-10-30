@@ -1,0 +1,66 @@
+.h1 {
+    font-size: 2.6em;
+    font-family: Arial;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2em;
+
+
+}
+
+.bigDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(254, 250, 224);
+    padding-bottom: 3em;
+}
+
+.secondDiv {
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #D4A373;
+    border-radius: 1em;
+    margin-top: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    width: 67%;
+    align-items: center;
+    padding-right: 2em;
+    padding-left: 2em;
+    background-color: #CCD5AE;
+
+
+}
+
+.img {
+    height: 20em;
+    width: 20em;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #D4A373;
+
+    padding-bottom: 0em;
+}
+
+.textDiv {
+    border: 3px solid #D4A373;
+    margin-left: 3em;
+    width: 40em;
+    margin-right: null;
+    border-radius: 5px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.textP {
+    text-align: justify;
+    font-size: 1.2em;
+
+}
+
+.links {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
