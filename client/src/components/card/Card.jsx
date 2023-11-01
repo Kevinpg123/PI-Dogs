@@ -37,6 +37,7 @@ function Card({ name, temperament, weight, reference_image_id, id }) {
     return (
         <Link to={`/detail/${id}`}>
             <div className={Style.bigDiv}>
+                <h3 className={Style.textName}>{name}</h3>
                 {
                     image ?
                         (<img className={Style.image} src={image} alt="imagen" />)
@@ -45,7 +46,6 @@ function Card({ name, temperament, weight, reference_image_id, id }) {
                 }
                 {/* <img src={image} alt="imagen" /> */}
 
-                <h3 className={Style.text}>Nombre: {name}</h3>
 
 
                 <h3 className={Style.text}>Temperamento: {temperament}</h3>

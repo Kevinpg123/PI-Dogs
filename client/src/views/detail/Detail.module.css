@@ -48,6 +48,7 @@
     border-radius: 5px;
     border: 1px solid #D4A373;
     transition: transform 0.4s;
+    margin-top: 2.7em;
 }
 
 .imagen:hover {
@@ -75,6 +76,11 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-top: 1em;
+    text-align: start;
+    white-space: nowrap;
+    overflow: visible;
+
 
 
 }

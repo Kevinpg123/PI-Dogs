@@ -69,6 +69,7 @@ function Home() {
 
     const closeAll = () => {
         dispatch(getDogByName())
+        dispatch(handlePageNum(1))
     }
 
     const getCurrentDogs = () => {
@@ -114,6 +115,9 @@ function Home() {
         dispatch(filterTemperament(el.target.value))
     }
 
+    const handleUpClick = () => {
+        window.scrollTo(0, 0)
+    }
 
     return (
         <div className={Style.bigDiv}>
@@ -179,6 +183,7 @@ function Home() {
             {searchDogsError && searchDogsError.error === 'no existe la raza' && <h1>No existe la raza</h1>}
             {searchDogsError && searchDogsError.error === 'no existe la raza' && <button className={Style.Button} onClick={closeAll}>Cerrar búsqueda</button>}
 
+
             <div className={Style.pageDiv}>
                 <button
                     className={Style.Button}
@@ -189,10 +194,12 @@ function Home() {
                 <button
                     className={Style.Button}
                     disabled={getCurrentDogs().length < 8}
-                    onClick={() => handlePage(pageNum + 1)}
+                    onClick={() => { window.scrollTo(0, 250); return (handlePage(pageNum + 1)) }}
                 >Siguiente</button>
             </div>
-
+            <button onClick={handleUpClick} className={getCurrentDogs().length > 0 ? Style.buttonUP : Style.buttonUPinvisible}>
+                <img className={Style.imgButtonUP} src='https://liceodeolmue.cl/assets/images/arriba.png' />
+            </button>
 
 
         </div>

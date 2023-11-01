@@ -68,7 +68,7 @@ body {
     flex-direction: row;
     margin-bottom: 0;
     padding-bottom: 3em;
-    padding-top: 2em;
+
 }
 
 .orderFilter {
@@ -89,4 +89,28 @@ body {
 
 .tituloOrder {
     font-size: 1.1em;
+}
+
+.buttonUP {
+    border: none;
+    background: none;
+    border-radius: 50%;
+    margin-left: 100em;
+
+}
+
+.buttonUPinvisible {
+    visibility: hidden;
+}
+
+.imgButtonUP {
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    transition: transform 0.3s;
+
+}
+
+.imgButtonUP:active {
+    transform: translateY(3px);
 }
