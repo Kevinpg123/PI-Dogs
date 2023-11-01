@@ -102,6 +102,7 @@ function Form() {
             })
         }
         dispatch(getAllDogs())
+        dispatch(getAllTemperaments())
     }
 
 

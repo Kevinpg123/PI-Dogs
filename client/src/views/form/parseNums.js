@@ -11,8 +11,13 @@ const parseNum = (dogData) => {
     // const temperaments = dogData.temperament
     // const newArray = temperaments.map(item => item.replace(/'/g, '"'));
     // dogData.temperament = newArray;
+    let nameArray = dogData.name.trim().split(' ')
+    let newArrayName = nameArray.map((el) => {
+        return el.charAt(0).toUpperCase() + el.slice(1)
+    })
+    const nameToUpperCase = newArrayName.join(' ')
     let sendData = {
-        name: dogData.name.trim(),
+        name: nameToUpperCase,
         height: `${dogData.heightMin} - ${dogData.heightMax}`,
         weight: `${dogData.weightMin} - ${dogData.weightMax}`,
         life_span: `${dogData.life_spanMin} - ${dogData.life_spanMax} years`,

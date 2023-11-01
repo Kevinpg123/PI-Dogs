@@ -15,7 +15,8 @@
     letter-spacing: 0.5px;
     margin-top: 2em;
     text-shadow: 4px 4px 8px #ffb627;
-    -webkit-text-stroke: 1px aliceblue;
+    -webkit-text-stroke: 1px black;
+    color: white;
 
 }
 
