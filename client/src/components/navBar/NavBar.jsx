@@ -15,22 +15,28 @@ function NavBar() {
     return (
         <div className={Style.bigDiv}>
             <div className={Style.navDiv}>
-                <Link to="/home">
-                    <button className={Style.Button}>Home</button>
-                </Link>
-                <Link to="/form">
-                    <button className={Style.Button}>Create</button>
-                </Link>
-                <Link to="/about">
-                    <button className={Style.Button}>About</button>
-                </Link>
-            </div>
-            <div className={Style.searchDiv}>
-                {
+                <div className={Style.imgContainer}>
+                    <img className={Style.imagen} src="https://img.freepik.com/vector-premium/logotipo-perro-lindo-dibujos-animados-minimalista-simple_68410-146.jpg" alt="logotipo pagina" />
+                    <h1 className={Style.titulo}>Spa de Perros</h1>
+                </div>
+                <div className={Style.buttonContainer}>
+                    <Link to="/home">
+                        <button className={Style.Button}>Home</button>
+                    </Link>
+                    <Link to="/form">
+                        <button className={Style.Button}>Create</button>
+                    </Link>
+                    <Link to="/about">
+                        <button className={Style.Button}>About</button>
+                    </Link>
+                </div>
+                <div className={location.pathname === "/home" ? Style.searchDiv : Style.hiddenSearch}>
 
-                    location.pathname == "/home" && <SearchBar />
 
-                }
+                    <SearchBar />
+
+
+                </div>
             </div>
         </div>
     )

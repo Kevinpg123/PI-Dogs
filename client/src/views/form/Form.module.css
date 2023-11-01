@@ -15,8 +15,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center; */
-
     /* Espacio entre los checkboxes */
+
+
 }
 
 .listDiv {
@@ -24,18 +25,28 @@
     display: flex;
     flex-direction: column;
 
-    overflow: auto;
+    overflow-y: scroll;
+    color: white;
+
+
     height: 14em;
     width: 90%;
-    border-left: 1px solid #FEFAE0;
-    border-right: 2px solid #FEFAE0;
+    /* border-left: 1px solid #FEFAE0;
+    border-right: 2px solid #FEFAE0; */
     align-self: center;
     /* display: flex;
     flex-direction: column;
+    
 
 
     border: 1px solid black; */
 }
+
+/* .listDiv::-webkit-scrollbar-thumb {
+    background-color: #0074D9;
+    border-radius: 6px;
+} */
+
 
 .checkbox_label {
     display: flex;
@@ -43,20 +54,23 @@
 }
 
 .form {
-    border: 1.5px solid #FEFAE0;
-    width: 38%;
+    /* border: 1.5px solid #FEFAE0; */
+    width: 90%;
     align-self: center;
-    background-color: #D4A373;
+    background-color: none;
     border-radius: 8px;
     margin-bottom: 4em;
+    border: 1px solid white;
+    padding-top: 1em;
+    margin-left: 5.5em;
 
 }
 
 .bigDiv {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgb(254, 250, 224);
+    flex-direction: row;
+    justify-content: space-between;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%), #D4A373;
     padding-top: 0.5em;
 }
 
@@ -95,7 +109,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border: 1.5px solid #FEFAE0;
+    /* border: 1.5px solid #FEFAE0; */
 
 }
 
@@ -105,13 +119,15 @@
     margin-left: 2.5em;
     font-size: 20px;
     width: 6em;
+    color: white;
 }
 
 .Input {
     height: 1.5em;
     align-self: center;
-    border: none;
+    border: 1px solid white;
     border-radius: 4px;
+    background-color: #CCD5AE;
 }
 
 .labelName {
@@ -119,6 +135,7 @@
     align-self: center;
     padding-left: 1em;
     width: 50%;
+    color: white;
 }
 
 .inputDobleDiv {
@@ -132,7 +149,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border: 1.5px solid #FEFAE0;
+    /* border: 1.5px solid #FEFAE0; */
     height: 5em;
     padding: 0.8em 0;
 
@@ -143,6 +160,8 @@
     align-self: center;
     border: none;
     border-radius: 4px;
+    background-color: #CCD5AE;
+    border: 1px solid white;
 }
 
 .temperamentName {
@@ -151,15 +170,16 @@
     margin-left: 1em;
     font-size: 20px;
     width: 6em;
+    color: white;
 }
 
 .temperamentDiv {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border-top: 1px solid #FEFAE0;
+    /* border-top: 1px solid #FEFAE0;
     border-left: 1px solid #FEFAE0;
-    border-right: 1px solid #FEFAE0;
+    border-right: 1px solid #FEFAE0; */
 }
 
 
@@ -171,17 +191,81 @@
     background-color: #CCD5AE;
     height: 2.1em;
     width: 40%;
+    border: 1px solid white;
     border-radius: 0.5em;
     transition: transform 0.2s;
     font-size: 0.9em;
     font-family: Arial;
     padding: 0px 4px;
+
 }
 
+.buttonSubmit:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 4px black;
+}
+
+.buttonSubmit:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 4px white;
+}
+
+
+
+
+
+
 .h1 {
+    margin-top: 2em;
     font-family: Arial;
+    margin-bottom: 1em;
+    color: white;
+    text-align: left;
+    /* border: 1px solid black; */
+    padding: none;
+
 }
 
 .submitDiv {
-    border-top: 2px solid #FEFAE0;
+    /* border-top: 2px solid #FEFAE0; */
+}
+
+.imgBig {
+    width: 30em;
+    height: auto;
+    margin-top: 12em;
+    margin-right: 10em;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.formBig {
+    background-color: none;
+    width: 40em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid white; */
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
+.listDiv::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+.listDiv::-webkit-scrollbar-track {
+    background: #FEFAE0;
+    border-radius: 5px;
+    /* color of the tracking area */
+}
+
+.listDiv::-webkit-scrollbar-thumb {
+    background-color: #D4A373;
+    /* color of the scroll thumb */
+    border-radius: 5px;
+    /* roundness of the scroll thumb */
+    border: 3px solid #D4A373;
+    /* creates padding around scroll thumb */
 }

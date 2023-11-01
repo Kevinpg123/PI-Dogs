@@ -118,52 +118,54 @@ function Home() {
     return (
         <div className={Style.bigDiv}>
             <div className={Style.orderFilter}>
-                <div className={Style.orderDiv}>
-                    <h2>Ordenamiento</h2>
-                    <div>
-                        <h3>Nombre</h3>
-                        <select className={Style.filterSelect} onChange={(value) => handleOrder(value)} defaultValue={""}>
-                            <option value="" disabled hidden>Seleccione una opción</option>
-                            <option value={["name", "asc"]} >Ascendente</option>
-                            <option value={["name", "desc"]} >Descendente</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <h3>Peso</h3>
-                        <select className={Style.filterSelect} onChange={(value) => handleOrder(value)} defaultValue={""}>
-                            <option value="" disabled hidden>Seleccione una opción</option>
-                            <option value={["weight", "asc"]}>Ascendente</option>
-                            <option value={["weight", "desc"]}>Descendente</option>
-                        </select>
-                    </div>
 
 
+                <div className={Style.orderDivInterno}>
+                    {/* <h3 className={Style.tituloOrder}>Ordenamiento</h3> */}
+                    <select className={Style.filterSelect} onChange={(value) => handleOrder(value)} defaultValue={""}>
+                        <option value="" disabled >Ordenamiento</option>
+                        <option value={["name", "asc"]} >Nombre &uarr; </option>
+                        <option value={["name", "desc"]} >Nombre &darr;</option>
+                        <option value={["weight", "asc"]}>Peso &uarr;</option>
+                        <option value={["weight", "desc"]}>Peso &darr;</option>
+                    </select>
                 </div>
-                <div className={Style.orderDiv}>
-                    <h2>Filtrado</h2>
-                    <div>
-                        <h3>Temperamento</h3>
-                        <select className={Style.filterSelect} onChange={(el) => handleFilterTemperament(el)} defaultValue={""}>
-                            <option value="" disabled hidden>Seleccione una opción</option>
-                            <option value="all">Todos</option>
-                            {
-                                allTemperaments && allTemperaments.map((temp, index) => {
-                                    return <option key={index} value={temp}>{temp}</option>
-                                })
-                            }
-                        </select>
-                    </div>
 
-                    <div>
-                        <h3>Orígen</h3>
-                        <select className={Style.filterSelect} onChange={(el) => handleFilterOrigin(el)} defaultValue={""}>
-                            <option value="" disabled hidden>Seleccione una opción</option>
-                            <option value="">Todos</option>
-                            <option value="API">API</option>
-                            <option value="DB">Base de datos</option>
-                        </select>
-                    </div>
+                {/* <div>
+                    <h3>Peso</h3>
+                    <select className={Style.filterSelect} onChange={(value) => handleOrder(value)} defaultValue={""}>
+                        <option value="" disabled hidden>Seleccione una opción</option>
+                        <option value={["weight", "asc"]}>Ascendente</option>
+                        <option value={["weight", "desc"]}>Descendente</option>
+                    </select>
+                </div> */}
+
+
+
+
+
+                <div className={Style.orderDivInterno}>
+                    {/* <h3 className={Style.tituloOrder}>Temperamento</h3> */}
+                    <select className={Style.filterSelect} onChange={(el) => handleFilterTemperament(el)} defaultValue={""}>
+                        <option value="" disabled>Temperamento</option>
+                        <option value="all">Todos</option>
+                        {
+                            allTemperaments && allTemperaments.map((temp, index) => {
+                                return <option key={index} value={temp}>{temp}</option>
+                            })
+                        }
+                    </select>
+                </div>
+
+                <div className={Style.orderDivInterno}>
+                    {/* <h3 className={Style.tituloOrder}>Orígen</h3> */}
+                    <select className={Style.filterSelect} onChange={(el) => handleFilterOrigin(el)} defaultValue={""}>
+                        <option value="" disabled>Origen</option>
+                        <option value="">Todos</option>
+                        <option value="API">API</option>
+                        <option value="DB">Base de datos</option>
+                    </select>
+
                 </div>
             </div>
             {/* {showAllDogs ? <Cards props={allDogs} /> : null} */}

@@ -9,25 +9,29 @@
 
 .searchDiv {
     align-self: center;
+    visibility: visible;
+}
+
+.hiddenSearch {
+    visibility: hidden;
 }
 
 .navDiv {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 0em;
-    align-items: flex-start;
+    align-items: center;
     background-color: rgb(204, 213, 174);
-    height: 4.5em;
-    border-radius: 20px;
-    margin-top: 0.5em;
-    align-self: center;
+    height: 7.5em;
+
+
 
 
 }
 
-.Button {
+/* .Button {
     margin-left: 0.8em;
     margin-right: 0.8em;
     margin-top: 1.5em;
@@ -39,14 +43,59 @@
     font-size: 0.9em;
     font-family: Arial;
     padding: 0px 4px;
+} */
+
+.buttonContainer {
+    margin-left: 15em;
+    width: 27em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
 }
+
+
+.Button {
+    background-color: rgb(204, 213, 174);
+    font-size: 1.2em;
+    border: none;
+
+
+}
+
 
 .Button:hover {
     cursor: pointer;
-    box-shadow: 0 2px 4px black;
+    /* border-radius: 5px; */
+    /* box-shadow: 0 0px 4px black; */
+    border-bottom: 1px solid black;
 }
 
 .Button:active {
     transform: translateY(3px);
-    box-shadow: 0 2px 4px white;
+    /* box-shadow: 0 0px 4px white; */
+    /* border-radius: 5px; */
+    border-bottom: 1px solid black;
+
+
+}
+
+.imgContainer {
+    align-self: center;
+    margin-left: 4em;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.imagen {
+    height: 5.5em;
+    width: 5.5em;
+    border-radius: 50%;
+}
+
+.titulo {
+    margin-left: 0.5em;
+    font-family: Candara;
 }
